@@ -1,27 +1,12 @@
-#include<iostream>
-#include<string>
 
-class Pessoa{
-    public:
-    std::string nome;
-
-    Pessoa(){}
-
-    void coleta(){
-        std::cout<<"Digite seu nome: "<<std::endl;
-        std::cin>>nome;
-    }
-
-    void apresentar(){
-        std::cout<<"Seu nome é "<<nome<<"."<<std::endl;
-    }
-};
+#include "Produto.h"
 
 int main(){
 
-    Pessoa minhaPessoa;
-    minhaPessoa.coleta();
-    minhaPessoa.apresentar();
+    Produto produtoFe;
+    produtoFe.coleta();
+    produtoFe.calculo();
+    produtoFe.exibir();
 
     return 0;
 }
