@@ -4,28 +4,26 @@
 
 int main() {
 
-    std::vector<std::string> nomes_de_pessoas;
+    std::vector<std::string> nomes;
+    std::vector<int>numeros;
 
-    nomes_de_pessoas.push_back("Alice");
-    nomes_de_pessoas.push_back("Bruno");
-    nomes_de_pessoas.push_back("Carla");
-    nomes_de_pessoas.push_back("Daniel");
-    nomes_de_pessoas.push_back("Elena");
-    nomes_de_pessoas.push_back("Fernanda"); 
+    nomes.push_back("Eduardo");
+    nomes.push_back("Fernanda");
+    nomes.push_back("Mariana");
+    nomes.push_back("Tânia");
+    nomes.push_back("Fernanda");
+    
+    std::cout<<"---Lista de nomes---"<<std::endl;
 
-    std::cout << "--- Lista de Nomes Prontos ---\n";
-
-    if (nomes_de_pessoas.empty()) {
-        std::cout << "Nenhum nome na lista pronta.\n";
-    } else {
-        for (size_t i = 0; i < nomes_de_pessoas.size(); ++i) {
-            std::cout << (i + 1) << ". " << nomes_de_pessoas[i] << "\n";
+    if(nomes.empty()){
+        std::cout<<"Nenhum nome na lista pronta!"<<std::endl;
+    }else{
+        for(size_t i = 0; i < nomes.size(); ++i){
+            std::cout<<(i + 1)<<". "<<nomes[i]<<std::endl;
         }
     }
 
-    std::cout << "\n--- Fim da Lista ---\n";
-
-    std::cout<<nomes_de_pessoas.size()<<std::endl;
+    std::cout<<"---Fim da lista---"<<std::endl;
 
     return 0;
 }
