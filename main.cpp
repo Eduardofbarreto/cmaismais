@@ -1,40 +1,46 @@
-#include<iostream>
-#include<vector>
-#include<string>
-#include<limits>
+#include <iostream> 
+#include <vector>  
+#include <string>   
+#include <limits>   
+#include <cctype>   
 
-int main(){
-    std::vector<std::string>tasks;
-    std::string task_input;
-    char continue_adding_choice;
+int main() {
+    std::vector<std::string> nomes_de_pessoas;
+    std::string nome_digitado; 
+    char adicionar_outro_nome_escolha; 
 
-    std::cout<<"--- Gerenciador de Tarefas Simples ---\n";
+    std::cout << "--- Adicionar Nomes à Lista ---\n";
 
-    do{
-        std::cout<<"Digite uma nova tarefa: "<<std::endl;
-        std::cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n');
-        std::getline(std::cin, task_input);
+    do {
+        std::cout << "\nDigite um nome para adicionar à lista: ";
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        std::getline(std::cin, nome_digitado); 
 
-        if(!task_input.empty()){
-            tasks.push_back(task_input);
-            std::cout<<"Tarefa salva! \""<<task_input<<"\"\n";
-        }else{
-            std::cout<<"A tarefa não pode ser vazia. Por favor, digite algo.\n";
+
+        if (!nome_digitado.empty()) {
+            nomes_de_pessoas.push_back(nome_digitado); 
+            std::cout << "\"" << nome_digitado << "\" foi adicionado à lista.\n";
+        } else {
+            std::cout << "O nome não pode ser vazio. Por favor, digite algo.\n";
         }
 
-        std::cout<<"Deseja adicionar outra tarefa (S/N)"<<std::endl;
-        std::cin>>continue_adding_choice;
-        continue_adding_choice = toupper(continue_adding_choice);
-    }while(continue_adding_choice == 'S');
-    std::cout<<"\n--- Suas tarefas salvas ---\n";
-    if(tasks.empty()){
-        std::cout<<"Nenhuma tarefa foi adicionada!\n"<<std::endl;
-    }else{
-        for(size_t i = 0; i < tasks.size(); i++){
-            std::cout<<(i + 1)<<". "<<tasks[i]<<"\n";
+        std::cout << "Deseja adicionar outro nome? (S/N): ";
+        std::cin >> adicionar_outro_nome_escolha;
+        //adicionar_outro_nome_escolha = toupper(adicionar_outro_nome_escolha);
+
+    } while (adicionar_outro_nome_escolha == 'S');
+
+    std::cout << "\n--- Lista Final de Nomes ---\n";
+
+    if (nomes_de_pessoas.empty()) {
+        std::cout << "Nenhum nome foi adicionado à lista.\n";
+    } else {
+        for (size_t i = 0; i < nomes_de_pessoas.size(); ++i) {
+            std::cout << (i + 1) << ". " << nomes_de_pessoas[i] << "\n";
         }
     }
-    std::cout<<"\nObrigado por usar o Gerenciador de Tarefas!\n";
+
+    std::cout << "\n--- Fim da Lista ---\n";
 
     return 0;
 }

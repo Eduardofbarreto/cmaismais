@@ -1,0 +1,46 @@
+Essa é uma estrutura de loop for, que é usada para repetir um bloco de código um número específico de vezes. No nosso caso, queremos repetir o código uma vez para cada tarefa que temos na nossa lista.
+
+Vamos analisar a linha do for e o que está dentro dela:
+A Linha do for: for (size_t i = 0; i < tasks.size(); ++i)
+
+Um loop for tem três partes principais dentro dos parênteses, separadas por ponto e vírgula (;):
+
+    size_t i = 0; (Inicialização)
+        size_t: Este é um tipo de dado especial em C++ que é garantido ser grande o suficiente para armazenar o tamanho de qualquer objeto ou contêiner na memória. É o tipo recomendado para índices de vetores e tamanhos de contêineres, pois evita problemas de compatibilidade entre sistemas de 32 e 64 bits e garante que o índice nunca seja negativo (já que tamanhos e índices não podem ser negativos).
+        i = 0: Aqui, estamos declarando uma variável chamada i (que é uma abreviação comum para "índice") e a inicializando com o valor 0.
+        Lógica: Começamos a contar do zero porque, na programação, as listas (como o std::vector) geralmente começam a numerar seus itens a partir do índice 0. O primeiro item está no índice 0, o segundo no índice 1, e assim por diante.
+
+    i < tasks.size(); (Condição)
+        tasks.size(): Este é um método do std::vector que retorna o número total de elementos (tarefas) que estão armazenados no vetor tasks. Por exemplo, se você tem 3 tarefas, tasks.size() retornará 3.
+        i < tasks.size(): Esta é a condição que o loop verifica antes de cada repetição. O loop continuará a ser executado enquanto o valor de i for menor que o número total de tarefas.
+        Lógica: Se temos 3 tarefas, com índices 0, 1 e 2:
+            Quando i é 0, 0 < 3 é verdadeiro, então o loop executa.
+            Quando i é 1, 1 < 3 é verdadeiro, então o loop executa.
+            Quando i é 2, 2 < 3 é verdadeiro, então o loop executa.
+            Quando i se torna 3, 3 < 3 é falso, então o loop para. Isso garante que o loop execute exatamente uma vez para cada tarefa, acessando os índices 0, 1 e 2.
+
+    ++i (Incremento)
+        ++i: Este é o operador de pré-incremento. Ele aumenta o valor de i em 1 a cada vez que o loop termina uma repetição e se prepara para a próxima.
+        Lógica: Após processar a tarefa no índice 0, queremos ir para a tarefa no índice 1, depois para a 2, e assim por diante. O ++i faz essa "passagem" para o próximo item da lista.
+
+O Bloco de Código Dentro do Loop: std::cout << (i + 1) << ". " << tasks[i] << "\n";
+
+Este é o código que será executado para cada tarefa na sua lista:
+
+    std::cout << ...: Como já vimos, isso é para imprimir algo na tela.
+
+    (i + 1):
+        i: Lembre-se que i é o índice da tarefa atual no vetor, começando do 0.
+        + 1: Estamos somando 1 ao i.
+        Lógica: Fazemos isso para que a numeração das tarefas que aparece para o usuário comece do 1 (o que é mais natural para nós), em vez de 0. Por exemplo, se i for 0 (primeira tarefa), (0 + 1) será 1. Se i for 1 (segunda tarefa), (1 + 1) será 2, e assim por diante.
+
+    ". ":
+        Lógica: Isso é apenas uma string literal que imprime um ponto e um espaço depois do número da tarefa (ex: "1. ", "2. ").
+
+    tasks[i]:
+        tasks: É o nome do nosso vetor que guarda todas as tarefas.
+        [i]: Isso é o "operador de acesso por índice". Ele nos permite pegar o item específico que está guardado no vetor na posição i.
+        Lógica: Se i for 0, tasks[0] nos dará a primeira tarefa. Se i for 1, tasks[1] nos dará a segunda tarefa, e assim por diante. É assim que acessamos o texto de cada tarefa individualmente.
+
+    "\n":
+        Lógica: Adiciona uma nova linha após imprimir cada tarefa, para que a próxima tarefa (ou a próxima mensagem) apareça em uma linha separada, mantendo a saída organizada.
