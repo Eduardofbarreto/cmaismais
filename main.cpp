@@ -25,7 +25,5 @@ int main() {
 
     std::cout << "\n--- Fim da Lista ---\n";
 
-    std::cout<<nomes_de_pessoas.size()<<std::endl;
-
     return 0;
 }
